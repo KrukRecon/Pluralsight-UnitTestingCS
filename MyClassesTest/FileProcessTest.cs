@@ -75,6 +75,24 @@ namespace MyClassesTest
             Assert.AreEqual(x, y);
         }
 
+        [TestMethod]
+        public void AreEqual()
+        {
+            string x = "Paul";
+            string y = "paul";
+            Assert.AreEqual(x, y, true); //Ruleing out case sensitivity
+        }
+
+        [TestMethod]
+        public void AreSameTest()
+        {
+            string x = "Paul";
+            string y = "paul";
+            Assert.AreNotSame(x, y);
+        }
+
+
+
         //[TestMethod]
         //[DeploymentItem("FileToDeploy.txt")]
         //[DataRow("", DisplayName = "First")]
@@ -85,7 +103,7 @@ namespace MyClassesTest
         [Timeout(3000)]
         public void SimulateTimeout()
         {
-            System.Threading.Thread.Sleep(4000);
+            System.Threading.Thread.Sleep(2000);
             //Sleep was longer than time limit 
         }
 
@@ -102,7 +120,7 @@ namespace MyClassesTest
 
             fromCall = fp.FileExists(BAD_FILE_NAME);
 
-            Assert.IsFalse(fromCall);
+            Assert.IsFalse(fromCall, "yup is false"); //Message
         }
 
         [TestMethod]
